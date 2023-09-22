@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D3A4A022ABE40B600B4B07B /* XkcdApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3A4A012ABE40B600B4B07B /* XkcdApiResponse.swift */; };
 		5D936CBC2ABCD0BC00F616CA /* XkcdApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D936CBB2ABCD0BC00F616CA /* XkcdApp.swift */; };
 		5D936CBE2ABCD0BC00F616CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D936CBD2ABCD0BC00F616CA /* ContentView.swift */; };
 		5D936CC02ABCD0BD00F616CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D936CBF2ABCD0BD00F616CA /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D3A4A012ABE40B600B4B07B /* XkcdApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XkcdApiResponse.swift; sourceTree = "<group>"; };
 		5D936CB82ABCD0BC00F616CA /* Xkcd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Xkcd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D936CBB2ABCD0BC00F616CA /* XkcdApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XkcdApp.swift; sourceTree = "<group>"; };
 		5D936CBD2ABCD0BC00F616CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -76,6 +78,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D3A4A002ABE409A00B4B07B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5D3A4A012ABE40B600B4B07B /* XkcdApiResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		5D936CAF2ABCD0BC00F616CA = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +109,7 @@
 		5D936CBA2ABCD0BC00F616CA /* Xkcd */ = {
 			isa = PBXGroup;
 			children = (
+				5D3A4A002ABE409A00B4B07B /* Models */,
 				5D936D012ABCDADD00F616CA /* Views */,
 				5D936D002ABCDAC700F616CA /* Helpers */,
 				5D936CBB2ABCD0BC00F616CA /* XkcdApp.swift */,
@@ -284,6 +295,7 @@
 				5D936D032ABCDAEB00F616CA /* FeedView.swift in Sources */,
 				5D936CBE2ABCD0BC00F616CA /* ContentView.swift in Sources */,
 				5D936CBC2ABCD0BC00F616CA /* XkcdApp.swift in Sources */,
+				5D3A4A022ABE40B600B4B07B /* XkcdApiResponse.swift in Sources */,
 				5D936CFF2ABCDAC200F616CA /* XkcdApiHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

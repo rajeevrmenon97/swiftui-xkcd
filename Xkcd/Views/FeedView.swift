@@ -14,19 +14,42 @@ struct SingleComicView: View {
         VStack {
             AsyncImage(url: URL(string: comic.img)) { phase in
                 switch phase {
-                case .empty:
-                    Image(systemName: "photo")
-                case .success(let image):
-                    image.resizable()
-                        .aspectRatio(contentMode: .fit)
-                case .failure:
-                    Image(systemName: "photo")
-                @unknown default:
-                    EmptyView()
+                    case .empty:
+                        ProgressView()
+                    case .success(let image):
+                        image.resizable().scaledToFit()
+                    case .failure:
+                        ProgressView()
+                    @unknown default:
+                        EmptyView()
                 }
             }
-            Text(comic.title)
-        }
+            Text(comic.safe_title)
+        }.navigationBarTitle(comic.safe_title, displayMode: .inline)
+    }
+}
+
+struct FeedItemView: View {
+    var comic: XkcdApiResponse
+    
+    var body: some View {
+        VStack {
+            AsyncImage(url: URL(string: comic.img)) { phase in
+                switch phase {
+                    case .empty:
+                        Image(systemName: "photo")
+                    case .success(let image):
+                        image.resizable()
+                            .aspectRatio(contentMode: .fit)
+                    case .failure:
+                        Image(systemName: "photo")
+                    @unknown default:
+                        EmptyView()
+                }
+            }
+            Text("\(comic.title)")
+        }.padding()
+        
     }
 }
 
@@ -46,14 +69,13 @@ struct FeedView: View {
                 offset += 1
             }
         }
-        
     }
     
     var body: some View {
         List(comics) { comic in
             NavigationLink(destination: SingleComicView(comic: comic)) {
-                Text("\(comic.num) \(comic.title)")
-            }
+                FeedItemView(comic: comic)
+            }.padding()
         }
         .task {
             await getComics()

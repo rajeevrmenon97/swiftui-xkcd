@@ -7,20 +7,6 @@
 
 import Foundation
 
-struct XkcdApiResponse: Codable, Identifiable {
-    var id: Int { return UUID().hashValue }
-    var num: Int
-    var day: String
-    var month: String
-    var year: String
-    var news: String
-    var safe_title: String
-    var transcript: String
-    var alt: String
-    var img: String
-    var title: String
-}
-
 class XkcdApiHelper {
     static func getRequest(api_url: String) async -> XkcdApiResponse? {
         do {

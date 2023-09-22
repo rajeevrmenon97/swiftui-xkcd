@@ -17,8 +17,7 @@ struct ContentView: View {
                     .tabItem {
                         Label("Feed", systemImage: "heart")
                     }.tag(1)
-            }.navigationTitle(selectedTab == 1 ? "Feed" : "")
-            
+            }.navigationBarTitle(selectedTab == 1 ? "Feed" : "", displayMode: .inline)
         }
     }
 }
