@@ -7,79 +7,50 @@
 
 import SwiftUI
 
-struct SingleComicView: View {
-    var comic: XkcdApiResponse
-    
-    var body: some View {
-        VStack {
-            AsyncImage(url: URL(string: comic.img)) { phase in
-                switch phase {
-                    case .empty:
-                        ProgressView()
-                    case .success(let image):
-                        image.resizable().scaledToFit()
-                    case .failure:
-                        ProgressView()
-                    @unknown default:
-                        EmptyView()
-                }
-            }
-            Text(comic.safe_title)
-        }.navigationBarTitle(comic.safe_title, displayMode: .inline)
-    }
-}
-
+// View for a single item in the feed
 struct FeedItemView: View {
-    var comic: XkcdApiResponse
+    var comic: XkcdComic
     
     var body: some View {
+        // Navigation link is added to the background to hide
+        // the arrow that shows up
         VStack {
-            AsyncImage(url: URL(string: comic.img)) { phase in
-                switch phase {
-                    case .empty:
-                        Image(systemName: "photo")
-                    case .success(let image):
-                        image.resizable()
-                            .aspectRatio(contentMode: .fit)
-                    case .failure:
-                        Image(systemName: "photo")
-                    @unknown default:
-                        EmptyView()
-                }
-            }
-            Text("\(comic.title)")
-        }.padding()
-        
+            Text("\(comic.num) \(comic.title)")
+        }.background(
+            NavigationLink("", destination: SingleComicView(comic: comic)).opacity(0)
+        )
     }
 }
 
+// Main view for the feed
 struct FeedView: View {
-    @State var comics = [XkcdApiResponse]()
-    @State var offset = 1
-    
-    func getComics(start: Int = 1) async -> () {
-        var comic: XkcdApiResponse?
-        let limit: Int = 10
-        if offset == start {
-            for i in start...(start + limit - 1) {
-                await comic = XkcdApiHelper.getComic(num: i)
-                if comic != nil {
-                    comics.append(comic!)
-                }
-                offset += 1
-            }
-        }
-    }
+    // API data source
+    @StateObject var dataSource = FeedDataSource()
     
     var body: some View {
-        List(comics) { comic in
-            NavigationLink(destination: SingleComicView(comic: comic)) {
+        List {
+            // Show each comic as they appear
+            ForEach(dataSource.comics) { comic in
                 FeedItemView(comic: comic)
-            }.padding()
+                    .onAppear(perform: {
+                        // Function to load more comics
+                        dataSource.loadMoreContentIfNeeded(comic: comic)
+                    })
+            }
+            
+            // Progress bar to show while loading comics
+            // An ID is added to it for showing it in a list
+            if (dataSource.isLoading) {
+                HStack {
+                    Spacer()
+                    ProgressView().id(UUID())
+                    Spacer()
+                }
+                
+            }
         }
-        .task {
-            await getComics()
-        }
+        .listStyle(.plain) // No background for the list elements
+        .scrollIndicators(.hidden) // Hide scroll bar
     }
 }
 

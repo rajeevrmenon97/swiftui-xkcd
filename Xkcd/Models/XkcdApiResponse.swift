@@ -7,8 +7,9 @@
 
 import Foundation
 
+// Model to parse the API response from XKCD
 struct XkcdApiResponse: Codable, Identifiable {
-    var id: Int { return UUID().hashValue }
+    var id: Int { num }
     var num: Int
     var day: String
     var month: String
