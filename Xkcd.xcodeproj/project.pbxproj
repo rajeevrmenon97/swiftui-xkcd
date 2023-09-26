@@ -14,30 +14,10 @@
 		5D936CBE2ABCD0BC00F616CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D936CBD2ABCD0BC00F616CA /* ContentView.swift */; };
 		5D936CC02ABCD0BD00F616CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D936CBF2ABCD0BD00F616CA /* Assets.xcassets */; };
 		5D936CC42ABCD0BD00F616CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D936CC32ABCD0BD00F616CA /* Preview Assets.xcassets */; };
-		5D936CCE2ABCD0BE00F616CA /* XkcdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D936CCD2ABCD0BE00F616CA /* XkcdTests.swift */; };
-		5D936CD82ABCD0BE00F616CA /* XkcdUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D936CD72ABCD0BE00F616CA /* XkcdUITests.swift */; };
-		5D936CDA2ABCD0BE00F616CA /* XkcdUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D936CD92ABCD0BE00F616CA /* XkcdUITestsLaunchTests.swift */; };
 		5D936CFF2ABCDAC200F616CA /* XkcdApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D936CFE2ABCDAC200F616CA /* XkcdApiHelper.swift */; };
 		5D936D032ABCDAEB00F616CA /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D936D022ABCDAEB00F616CA /* FeedView.swift */; };
 		5DF4DDA52ABE5A710039B221 /* XkcdComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4DDA42ABE5A710039B221 /* XkcdComic.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		5D936CCA2ABCD0BE00F616CA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5D936CB02ABCD0BC00F616CA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5D936CB72ABCD0BC00F616CA;
-			remoteInfo = Xkcd;
-		};
-		5D936CD42ABCD0BE00F616CA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5D936CB02ABCD0BC00F616CA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5D936CB72ABCD0BC00F616CA;
-			remoteInfo = Xkcd;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		5D3A4A012ABE40B600B4B07B /* XkcdApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XkcdApiResponse.swift; sourceTree = "<group>"; };
@@ -49,11 +29,6 @@
 		5D936CBF2ABCD0BD00F616CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5D936CC12ABCD0BD00F616CA /* Xkcd.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Xkcd.entitlements; sourceTree = "<group>"; };
 		5D936CC32ABCD0BD00F616CA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		5D936CC92ABCD0BE00F616CA /* XkcdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XkcdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5D936CCD2ABCD0BE00F616CA /* XkcdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XkcdTests.swift; sourceTree = "<group>"; };
-		5D936CD32ABCD0BE00F616CA /* XkcdUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XkcdUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5D936CD72ABCD0BE00F616CA /* XkcdUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XkcdUITests.swift; sourceTree = "<group>"; };
-		5D936CD92ABCD0BE00F616CA /* XkcdUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XkcdUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5D936CFE2ABCDAC200F616CA /* XkcdApiHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XkcdApiHelper.swift; sourceTree = "<group>"; };
 		5D936D022ABCDAEB00F616CA /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		5DF4DDA42ABE5A710039B221 /* XkcdComic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XkcdComic.swift; sourceTree = "<group>"; };
@@ -61,20 +36,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		5D936CB52ABCD0BC00F616CA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5D936CC62ABCD0BE00F616CA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5D936CD02ABCD0BE00F616CA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -97,8 +58,6 @@
 			isa = PBXGroup;
 			children = (
 				5D936CBA2ABCD0BC00F616CA /* Xkcd */,
-				5D936CCC2ABCD0BE00F616CA /* XkcdTests */,
-				5D936CD62ABCD0BE00F616CA /* XkcdUITests */,
 				5D936CB92ABCD0BC00F616CA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -107,8 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				5D936CB82ABCD0BC00F616CA /* Xkcd.app */,
-				5D936CC92ABCD0BE00F616CA /* XkcdTests.xctest */,
-				5D936CD32ABCD0BE00F616CA /* XkcdUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -133,23 +90,6 @@
 				5D936CC32ABCD0BD00F616CA /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		5D936CCC2ABCD0BE00F616CA /* XkcdTests */ = {
-			isa = PBXGroup;
-			children = (
-				5D936CCD2ABCD0BE00F616CA /* XkcdTests.swift */,
-			);
-			path = XkcdTests;
-			sourceTree = "<group>";
-		};
-		5D936CD62ABCD0BE00F616CA /* XkcdUITests */ = {
-			isa = PBXGroup;
-			children = (
-				5D936CD72ABCD0BE00F616CA /* XkcdUITests.swift */,
-				5D936CD92ABCD0BE00F616CA /* XkcdUITestsLaunchTests.swift */,
-			);
-			path = XkcdUITests;
 			sourceTree = "<group>";
 		};
 		5D936D002ABCDAC700F616CA /* Helpers */ = {
@@ -191,42 +131,6 @@
 			productReference = 5D936CB82ABCD0BC00F616CA /* Xkcd.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5D936CC82ABCD0BE00F616CA /* XkcdTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5D936CE02ABCD0BE00F616CA /* Build configuration list for PBXNativeTarget "XkcdTests" */;
-			buildPhases = (
-				5D936CC52ABCD0BE00F616CA /* Sources */,
-				5D936CC62ABCD0BE00F616CA /* Frameworks */,
-				5D936CC72ABCD0BE00F616CA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5D936CCB2ABCD0BE00F616CA /* PBXTargetDependency */,
-			);
-			name = XkcdTests;
-			productName = XkcdTests;
-			productReference = 5D936CC92ABCD0BE00F616CA /* XkcdTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		5D936CD22ABCD0BE00F616CA /* XkcdUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5D936CE32ABCD0BE00F616CA /* Build configuration list for PBXNativeTarget "XkcdUITests" */;
-			buildPhases = (
-				5D936CCF2ABCD0BE00F616CA /* Sources */,
-				5D936CD02ABCD0BE00F616CA /* Frameworks */,
-				5D936CD12ABCD0BE00F616CA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5D936CD52ABCD0BE00F616CA /* PBXTargetDependency */,
-			);
-			name = XkcdUITests;
-			productName = XkcdUITests;
-			productReference = 5D936CD32ABCD0BE00F616CA /* XkcdUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -239,14 +143,6 @@
 				TargetAttributes = {
 					5D936CB72ABCD0BC00F616CA = {
 						CreatedOnToolsVersion = 15.0;
-					};
-					5D936CC82ABCD0BE00F616CA = {
-						CreatedOnToolsVersion = 15.0;
-						TestTargetID = 5D936CB72ABCD0BC00F616CA;
-					};
-					5D936CD22ABCD0BE00F616CA = {
-						CreatedOnToolsVersion = 15.0;
-						TestTargetID = 5D936CB72ABCD0BC00F616CA;
 					};
 				};
 			};
@@ -264,8 +160,6 @@
 			projectRoot = "";
 			targets = (
 				5D936CB72ABCD0BC00F616CA /* Xkcd */,
-				5D936CC82ABCD0BE00F616CA /* XkcdTests */,
-				5D936CD22ABCD0BE00F616CA /* XkcdUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -277,20 +171,6 @@
 			files = (
 				5D936CC42ABCD0BD00F616CA /* Preview Assets.xcassets in Resources */,
 				5D936CC02ABCD0BD00F616CA /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5D936CC72ABCD0BE00F616CA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5D936CD12ABCD0BE00F616CA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,37 +192,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5D936CC52ABCD0BE00F616CA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5D936CCE2ABCD0BE00F616CA /* XkcdTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5D936CCF2ABCD0BE00F616CA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5D936CDA2ABCD0BE00F616CA /* XkcdUITestsLaunchTests.swift in Sources */,
-				5D936CD82ABCD0BE00F616CA /* XkcdUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		5D936CCB2ABCD0BE00F616CA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5D936CB72ABCD0BC00F616CA /* Xkcd */;
-			targetProxy = 5D936CCA2ABCD0BE00F616CA /* PBXContainerItemProxy */;
-		};
-		5D936CD52ABCD0BE00F616CA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5D936CB72ABCD0BC00F616CA /* Xkcd */;
-			targetProxy = 5D936CD42ABCD0BE00F616CA /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		5D936CDB2ABCD0BE00F616CA /* Debug */ = {
@@ -472,6 +322,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Xkcd Viewer";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -480,8 +331,7 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -490,7 +340,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = rrm.Xkcd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -510,6 +361,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Xkcd Viewer";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -518,8 +370,7 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -528,100 +379,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = rrm.Xkcd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		5D936CE12ABCD0BE00F616CA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QX68M6KDVU;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MACOSX_DEPLOYMENT_TARGET = 13.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = rrm.XkcdTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Xkcd.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Xkcd";
-			};
-			name = Debug;
-		};
-		5D936CE22ABCD0BE00F616CA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QX68M6KDVU;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MACOSX_DEPLOYMENT_TARGET = 13.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = rrm.XkcdTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Xkcd.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Xkcd";
-			};
-			name = Release;
-		};
-		5D936CE42ABCD0BE00F616CA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QX68M6KDVU;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MACOSX_DEPLOYMENT_TARGET = 13.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = rrm.XkcdUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Xkcd;
-			};
-			name = Debug;
-		};
-		5D936CE52ABCD0BE00F616CA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QX68M6KDVU;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MACOSX_DEPLOYMENT_TARGET = 13.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = rrm.XkcdUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Xkcd;
 			};
 			name = Release;
 		};
@@ -642,24 +404,6 @@
 			buildConfigurations = (
 				5D936CDE2ABCD0BE00F616CA /* Debug */,
 				5D936CDF2ABCD0BE00F616CA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5D936CE02ABCD0BE00F616CA /* Build configuration list for PBXNativeTarget "XkcdTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5D936CE12ABCD0BE00F616CA /* Debug */,
-				5D936CE22ABCD0BE00F616CA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5D936CE32ABCD0BE00F616CA /* Build configuration list for PBXNativeTarget "XkcdUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5D936CE42ABCD0BE00F616CA /* Debug */,
-				5D936CE52ABCD0BE00F616CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
