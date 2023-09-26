@@ -11,9 +11,6 @@ import SwiftUI
 
 // Class holding the business logic of the app
 class FeedDataSource: ObservableObject {
-    // Storing the last loaded latest comic number
-    @AppStorage("latestComic") private var latestComicOffline = 0
-    
     // Stores the comics and the loading status
     @Published var comics = [XkcdComic]()
     @Published var isLoading = false
@@ -35,7 +32,6 @@ class FeedDataSource: ObservableObject {
             .sink(receiveValue: { comic in
                 guard let comic = comic else {return}
                 self.comics.append(comic)
-                self.latestComicOffline = comic.num
                 // Set the current comic to the one before latest
                 self.currentComic = comic.num - 1
                 // Load the previous comics in descending order of comic number
