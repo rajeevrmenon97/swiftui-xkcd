@@ -36,6 +36,7 @@ class XkcdApiHelper {
     // Function to clear the cache
     static func clearCache() {
         urlCache.removeAllCachedResponses()
+        imageCache.clearCache()
     }
     
     // Basic function to make a GET request
@@ -82,6 +83,5 @@ class XkcdApiHelper {
         let resource = KF.ImageResource(downloadURL: url, cacheKey: String(comic.num))
         return KFImage(source: .network(resource))
                 .targetCache(imageCache)
-                
     }
 }

@@ -18,6 +18,7 @@
 		5D936D032ABCDAEB00F616CA /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D936D022ABCDAEB00F616CA /* FeedView.swift */; };
 		5D9409B82AC3A6EF009E10FD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5D9409B72AC3A6EF009E10FD /* Kingfisher */; };
 		5DF4DDA52ABE5A710039B221 /* XkcdComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4DDA42ABE5A710039B221 /* XkcdComic.swift */; };
+		5DF6944F2AC3E607002043AF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6944E2AC3E607002043AF /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		5D936CFE2ABCDAC200F616CA /* XkcdApiHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XkcdApiHelper.swift; sourceTree = "<group>"; };
 		5D936D022ABCDAEB00F616CA /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		5DF4DDA42ABE5A710039B221 /* XkcdComic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XkcdComic.swift; sourceTree = "<group>"; };
+		5DF6944E2AC3E607002043AF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				5D936CBD2ABCD0BC00F616CA /* ContentView.swift */,
 				5D936D022ABCDAEB00F616CA /* FeedView.swift */,
 				5D8F57B22AC238DC00A829BB /* SingleComicView.swift */,
+				5DF6944E2AC3E607002043AF /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				5D8F57B32AC238DC00A829BB /* SingleComicView.swift in Sources */,
 				5D936D032ABCDAEB00F616CA /* FeedView.swift in Sources */,
 				5D936CBE2ABCD0BC00F616CA /* ContentView.swift in Sources */,
+				5DF6944F2AC3E607002043AF /* SettingsView.swift in Sources */,
 				5DF4DDA52ABE5A710039B221 /* XkcdComic.swift in Sources */,
 				5D3A4A042ABE414900B4B07B /* FeedDataSource.swift in Sources */,
 				5D936CBC2ABCD0BC00F616CA /* XkcdApp.swift in Sources */,

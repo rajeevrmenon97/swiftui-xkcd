@@ -28,7 +28,6 @@ struct FeedItemView: View {
                     NavigationLink("", destination: SingleComicView(comic: comic))
                 )
             
-            
             HStack {
                 Image(systemName: "heart")
                     .imageScale(.large)

@@ -12,21 +12,24 @@ struct ContentView: View {
     
     // Dictionary holding the tab names
     let tabNames = Dictionary<Int, String>(uniqueKeysWithValues: [
-        (1, "Feed")
+        (1, "Feed"), (2, "Settings")
     ])
     
     var body: some View {
-        // Main tab view
-        TabView(selection: $selectedTab) {
-            // Navigation view for the feed
-            NavigationStack {
+        // Navigation view for the feed
+        NavigationStack {
+            // Main tab view
+            TabView(selection: $selectedTab) {
                 FeedView()
-                    .navigationBarTitle(tabNames[selectedTab] ?? "", displayMode: .inline)
                     .toolbarBackground(.visible, for: .navigationBar, .tabBar)
-            }
-            .tabItem {
-                Label("Feed", systemImage: "list.dash")
-            }.tag(1)
+                .tabItem {
+                    Label("Feed", systemImage: "list.dash")
+                }.tag(1)
+                
+                SettingsView().tabItem {
+                    Label("Settings", systemImage: "gear")
+                }.tag(2)
+            }.navigationBarTitle(tabNames[selectedTab]!, displayMode: .inline)
         }
     }
 }
