@@ -9,7 +9,14 @@ import SwiftUI
 
 // View for a single item in the feed
 struct FeedItemView: View {
+    // State variable for the like button
+    @State var isFavorite: Bool = false
+    
+    // Comic in the feed item
     var comic: XkcdComic
+    
+    // DataSource for the favorites feed
+    @ObservedObject var favoritesDataSource: FavoritesDataSource
     
     var body: some View {
         VStack {
@@ -19,20 +26,34 @@ struct FeedItemView: View {
                 Spacer()
             }.padding(.top)
             
+            // KF Image of the commic
             XkcdApiHelper.getComicImage(comic: comic)
                 .resizable()
                 .scaledToFit()
                 .padding()
                 .border(Color.primary)
                 .background(
+                    // Link hidden in background to hide the arrow
                     NavigationLink("", destination: SingleComicView(comic: comic))
+                        .opacity(0)
                 )
             
             HStack {
-                Image(systemName: "heart")
+                Image(systemName: isFavorite ? "heart.fill": "heart")
                     .imageScale(.large)
+                    .onAppear(perform: {
+                        // Update the like button status real time
+                        isFavorite = favoritesDataSource.isFavorite(comicNumber: comic.num)
+                    })
                     .onTapGesture {
-                        return
+                        // Handle add/remove to favorites
+                        if favoritesDataSource.isFavorite(comicNumber: comic.num) {
+                            isFavorite = false
+                            favoritesDataSource.deleteFavorite(comicNumber: comic.num)
+                        } else {
+                            isFavorite = true
+                            favoritesDataSource.addFavorite(comic: comic)
+                        }
                     }
                 Text(comic.title)
                     .font(.subheadline)
@@ -46,14 +67,15 @@ struct FeedItemView: View {
 struct FeedView: View {
     // API data source
     @StateObject var dataSource = FeedDataSource()
+    @ObservedObject var favoritesDataSource: FavoritesDataSource
     
     var body: some View {
         List {
-            // Show each comic as they appear
+            // Show each comic as they are loaded
             ForEach(dataSource.comics) { comic in
-                FeedItemView(comic: comic)
+                FeedItemView(comic: comic, favoritesDataSource: favoritesDataSource)
                     .onAppear(perform: {
-                        // Function to load more comics
+                        // Function to load more comics as you scroll
                         dataSource.loadMoreContentIfNeeded(comic: comic)
                     })
             }
@@ -69,11 +91,15 @@ struct FeedView: View {
                 
             }
         }
+        .refreshable {
+            // Reload the feed to load any new comics
+            dataSource.reload()
+        }
         .listStyle(.plain) // No background for the list elements
         .scrollIndicators(.hidden) // Hide scroll bar
     }
 }
 
 #Preview {
-    FeedView()
+    FeedView(favoritesDataSource: FavoritesDataSource())
 }

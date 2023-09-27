@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Single comic view
 struct SingleComicView: View {
     var comic: XkcdComic
     

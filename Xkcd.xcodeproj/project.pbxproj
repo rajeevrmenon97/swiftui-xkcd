@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5D3A4A022ABE40B600B4B07B /* XkcdApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3A4A012ABE40B600B4B07B /* XkcdApiResponse.swift */; };
 		5D3A4A042ABE414900B4B07B /* FeedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3A4A032ABE414900B4B07B /* FeedDataSource.swift */; };
+		5D87A8622AC428A00067A9D8 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D87A8612AC428A00067A9D8 /* FavoritesView.swift */; };
 		5D8F57B32AC238DC00A829BB /* SingleComicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F57B22AC238DC00A829BB /* SingleComicView.swift */; };
 		5D936CBC2ABCD0BC00F616CA /* XkcdApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D936CBB2ABCD0BC00F616CA /* XkcdApp.swift */; };
 		5D936CBE2ABCD0BC00F616CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D936CBD2ABCD0BC00F616CA /* ContentView.swift */; };
@@ -19,11 +20,13 @@
 		5D9409B82AC3A6EF009E10FD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5D9409B72AC3A6EF009E10FD /* Kingfisher */; };
 		5DF4DDA52ABE5A710039B221 /* XkcdComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4DDA42ABE5A710039B221 /* XkcdComic.swift */; };
 		5DF6944F2AC3E607002043AF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6944E2AC3E607002043AF /* SettingsView.swift */; };
+		5DF694512AC3F7FE002043AF /* FavoritesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF694502AC3F7FE002043AF /* FavoritesDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5D3A4A012ABE40B600B4B07B /* XkcdApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XkcdApiResponse.swift; sourceTree = "<group>"; };
 		5D3A4A032ABE414900B4B07B /* FeedDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDataSource.swift; sourceTree = "<group>"; };
+		5D87A8612AC428A00067A9D8 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		5D8F57B22AC238DC00A829BB /* SingleComicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleComicView.swift; sourceTree = "<group>"; };
 		5D936CB82ABCD0BC00F616CA /* Xkcd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Xkcd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D936CBB2ABCD0BC00F616CA /* XkcdApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XkcdApp.swift; sourceTree = "<group>"; };
@@ -35,6 +38,7 @@
 		5D936D022ABCDAEB00F616CA /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		5DF4DDA42ABE5A710039B221 /* XkcdComic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XkcdComic.swift; sourceTree = "<group>"; };
 		5DF6944E2AC3E607002043AF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		5DF694502AC3F7FE002043AF /* FavoritesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,7 @@
 			children = (
 				5D936CFE2ABCDAC200F616CA /* XkcdApiHelper.swift */,
 				5D3A4A032ABE414900B4B07B /* FeedDataSource.swift */,
+				5DF694502AC3F7FE002043AF /* FavoritesDataSource.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -112,6 +117,7 @@
 				5D936D022ABCDAEB00F616CA /* FeedView.swift */,
 				5D8F57B22AC238DC00A829BB /* SingleComicView.swift */,
 				5DF6944E2AC3E607002043AF /* SettingsView.swift */,
+				5D87A8612AC428A00067A9D8 /* FavoritesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -192,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D87A8622AC428A00067A9D8 /* FavoritesView.swift in Sources */,
 				5D8F57B32AC238DC00A829BB /* SingleComicView.swift in Sources */,
 				5D936D032ABCDAEB00F616CA /* FeedView.swift in Sources */,
 				5D936CBE2ABCD0BC00F616CA /* ContentView.swift in Sources */,
@@ -199,6 +206,7 @@
 				5DF4DDA52ABE5A710039B221 /* XkcdComic.swift in Sources */,
 				5D3A4A042ABE414900B4B07B /* FeedDataSource.swift in Sources */,
 				5D936CBC2ABCD0BC00F616CA /* XkcdApp.swift in Sources */,
+				5DF694512AC3F7FE002043AF /* FavoritesDataSource.swift in Sources */,
 				5D3A4A022ABE40B600B4B07B /* XkcdApiResponse.swift in Sources */,
 				5D936CFF2ABCDAC200F616CA /* XkcdApiHelper.swift in Sources */,
 			);
@@ -341,6 +349,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -380,6 +389,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";

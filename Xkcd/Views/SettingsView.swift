@@ -13,11 +13,15 @@ struct SettingsView: View {
     
     var body: some View {
         Form {
+            // Appearance section
             Section(header: Text("Appearance")) {
+                // Dark mode toggle
                 Toggle("Dark Mode", isOn: $isDarkMode)
             }
             
+            // Storage section
             Section(header: Text("Storage")) {
+                // Clear cache button
                 Button("Clear Cache", role: .destructive, action: {
                     showClearCacheAlert = true
                 }).alert(isPresented: $showClearCacheAlert) {

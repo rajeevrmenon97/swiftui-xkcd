@@ -21,7 +21,12 @@ class FeedDataSource: ObservableObject {
     private var batchSize = 5
     
     init() {
-        // Try to load the latest comic
+        loadLatestComic()
+    }
+    
+    // Try to load the latest comic
+    private func loadLatestComic() {
+        
         XkcdApiHelper.getLatestComic()
             .catch({ error -> AnyPublisher<XkcdComic?, Error> in
                 // Failed to load the latest comic. Try to load the latest comic from cache
@@ -37,6 +42,15 @@ class FeedDataSource: ObservableObject {
                 // Load the previous comics in descending order of comic number
                 self.loadContent()
             }).store(in: &cancellables)
+    }
+    
+    // Function to reload the feed when there is a new comic
+    public func reload() {
+        DispatchQueue.main.async {
+            self.comics.removeAll()
+            self.canLoadMoreComics = true
+            self.loadLatestComic()
+        }
     }
     
     // This function is called when a comic listing appears on the feed
@@ -56,7 +70,6 @@ class FeedDataSource: ObservableObject {
             loadContent()
         }
     }
-    
     
     public func loadContent() {
         // If loading or all comics are loaded, don't do anything
