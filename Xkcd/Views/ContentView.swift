@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var favoritesDataSource = FavoritesDataSource()
+    @StateObject var favoritesViewModel = FavoritesViewModel()
     @State var selectedTab = 1
     
     // Dictionary holding the tab names
@@ -22,14 +22,14 @@ struct ContentView: View {
             // Main tab view
             TabView(selection: $selectedTab) {
                 // The full Xkcd feed
-                FeedView(favoritesDataSource: favoritesDataSource)
+                FeedView(favoritesViewModel: favoritesViewModel)
                     .toolbarBackground(.visible, for: .navigationBar, .tabBar)
                 .tabItem {
                     Label("Feed", systemImage: "list.dash")
                 }.tag(1)
                 
                 // Favorites feed
-                FavoritesView(dataSource: favoritesDataSource).tabItem {
+                FavoritesView(favoritesViewModel: favoritesViewModel).tabItem {
                     Label("Favorites", systemImage: "heart")
                 }.tag(2)
                 

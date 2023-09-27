@@ -28,7 +28,7 @@ struct SettingsView: View {
                     Alert(
                         title: Text("Clear Cache"),
                         message: Text("Are you sure?"),
-                        primaryButton: .destructive(Text("Yes"), action: XkcdApiHelper.clearCache),
+                        primaryButton: .destructive(Text("Yes"), action: XkcdApiService.clearCache),
                         secondaryButton: .default(Text("No"))
                     )
                 }

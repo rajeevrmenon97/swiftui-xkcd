@@ -13,7 +13,7 @@ struct SingleComicView: View {
     
     var body: some View {
         VStack {
-            XkcdApiHelper.getComicImage(comic: comic)
+            XkcdApiService.getComicImage(comic: comic)
                 .resizable()
                 .scaledToFit()
             Text(comic.title)

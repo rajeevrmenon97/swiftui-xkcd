@@ -16,7 +16,7 @@ struct FeedItemView: View {
     var comic: XkcdComic
     
     // DataSource for the favorites feed
-    @ObservedObject var favoritesDataSource: FavoritesDataSource
+    @ObservedObject var favoritesViewModel: FavoritesViewModel
     
     var body: some View {
         VStack {
@@ -27,7 +27,7 @@ struct FeedItemView: View {
             }.padding(.top)
             
             // KF Image of the commic
-            XkcdApiHelper.getComicImage(comic: comic)
+            XkcdApiService.getComicImage(comic: comic)
                 .resizable()
                 .scaledToFit()
                 .padding()
@@ -43,16 +43,16 @@ struct FeedItemView: View {
                     .imageScale(.large)
                     .onAppear(perform: {
                         // Update the like button status real time
-                        isFavorite = favoritesDataSource.isFavorite(comicNumber: comic.num)
+                        isFavorite = favoritesViewModel.isFavorite(comicNumber: comic.num)
                     })
                     .onTapGesture {
                         // Handle add/remove to favorites
-                        if favoritesDataSource.isFavorite(comicNumber: comic.num) {
+                        if favoritesViewModel.isFavorite(comicNumber: comic.num) {
                             isFavorite = false
-                            favoritesDataSource.deleteFavorite(comicNumber: comic.num)
+                            favoritesViewModel.deleteFavorite(comicNumber: comic.num)
                         } else {
                             isFavorite = true
-                            favoritesDataSource.addFavorite(comic: comic)
+                            favoritesViewModel.addFavorite(comic: comic)
                         }
                     }
                 Text(comic.title)
@@ -65,24 +65,24 @@ struct FeedItemView: View {
 
 // Main view for the feed
 struct FeedView: View {
-    // API data source
-    @StateObject var dataSource = FeedDataSource()
-    @ObservedObject var favoritesDataSource: FavoritesDataSource
+    // View models
+    @StateObject var feedViewModel = FeedViewModel()
+    @ObservedObject var favoritesViewModel: FavoritesViewModel
     
     var body: some View {
         List {
             // Show each comic as they are loaded
-            ForEach(dataSource.comics) { comic in
-                FeedItemView(comic: comic, favoritesDataSource: favoritesDataSource)
+            ForEach(feedViewModel.comics) { comic in
+                FeedItemView(comic: comic, favoritesViewModel: favoritesViewModel)
                     .onAppear(perform: {
                         // Function to load more comics as you scroll
-                        dataSource.loadMoreContentIfNeeded(comic: comic)
+                        feedViewModel.loadMoreContentIfNeeded(comic: comic)
                     })
             }
             
             // Progress bar to show while loading comics
             // An ID is added to it for showing it in a list
-            if (dataSource.isLoading) {
+            if (feedViewModel.isLoading) {
                 HStack {
                     Spacer()
                     ProgressView().id(UUID())
@@ -93,7 +93,7 @@ struct FeedView: View {
         }
         .refreshable {
             // Reload the feed to load any new comics
-            dataSource.reload()
+            feedViewModel.reload()
         }
         .listStyle(.plain) // No background for the list elements
         .scrollIndicators(.hidden) // Hide scroll bar
@@ -101,5 +101,5 @@ struct FeedView: View {
 }
 
 #Preview {
-    FeedView(favoritesDataSource: FavoritesDataSource())
+    FeedView(favoritesViewModel: FavoritesViewModel())
 }

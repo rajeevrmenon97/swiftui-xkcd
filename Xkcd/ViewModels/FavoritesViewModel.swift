@@ -1,5 +1,5 @@
 //
-//  FavoritesHelper.swift
+//  FavoritesViewModel.swift
 //  Xkcd
 //
 //  Created by Rajeev R Menon on 9/26/23.
@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class FavoritesDataSource: ObservableObject {
+class FavoritesViewModel: ObservableObject {
     // Comics displayed on the favorites feed
     @Published var comics = [XkcdComic]()
     
@@ -30,7 +30,10 @@ class FavoritesDataSource: ObservableObject {
     // Number of comics to load at once
     var batchSize = 5
     
+    // Cancellables
     var cancellables: Set<AnyCancellable> = []
+    
+    // Key used for saving data in UserDefaults
     let userDefaultsKey = "favorites"
     
     init() {
@@ -46,7 +49,7 @@ class FavoritesDataSource: ObservableObject {
                 isLoading = true
                 
                 // Load the first favorite comic
-                XkcdApiHelper.getComic(num: comicNumbers[0])
+                XkcdApiService.getComic(num: comicNumbers[0])
                     .replaceError(with: nil)
                     .receive(on: DispatchQueue.main)
                     .sink(receiveValue: { comic in
@@ -149,7 +152,7 @@ class FavoritesDataSource: ObservableObject {
         // Load the comics using combine API
         Publishers.Sequence(sequence: comicNumbers)
             .flatMap { number in
-                XkcdApiHelper.getComic(num: number).replaceError(with: nil)
+                XkcdApiService.getComic(num: number).replaceError(with: nil)
             }
             .compactMap { $0 }
             .collect()

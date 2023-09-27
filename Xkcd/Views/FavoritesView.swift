@@ -26,7 +26,7 @@ struct FavoriteItemView: View {
             Spacer()
             
             VStack {
-                XkcdApiHelper.getComicImage(comic: comic)
+                XkcdApiService.getComicImage(comic: comic)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .background(
@@ -40,33 +40,33 @@ struct FavoriteItemView: View {
 
 // Main view for the favorites feed
 struct FavoritesView: View {
-    // Favorites data source
-    @ObservedObject var dataSource: FavoritesDataSource
+    // Favorites view model
+    @ObservedObject var favoritesViewModel: FavoritesViewModel
     
     var body: some View {
         // Placeholder to display when there are no favorites
-        if dataSource.noFavorites {
+        if favoritesViewModel.noFavorites {
             Text("No favorites")
         } else {
             GeometryReader { geometry in
                 List {
                     // Show favorites as they are loaded
-                    ForEach(dataSource.comics) { comic in
+                    ForEach(favoritesViewModel.comics) { comic in
                         FavoriteItemView(comic: comic, width: geometry.size.width, height: geometry.size.height * 0.15)
                             .onAppear(perform: {
                                 // Function to load more favorites as you scroll
-                                dataSource.loadMoreFavoritesIfNeeded(comic: comic)
+                                favoritesViewModel.loadMoreFavoritesIfNeeded(comic: comic)
                             })
                     }.onDelete { indexSet in
                         // Handle swipe left to remove favorites
                         indexSet.forEach { index in
-                            dataSource.deleteFavorite(comicNumber: dataSource.comics[index].num)
+                            favoritesViewModel.deleteFavorite(comicNumber: favoritesViewModel.comics[index].num)
                         }
                     }
                     
                     // Progress bar to show while loading comics
                     // An ID is added to it for showing it in a list
-                    if (dataSource.isLoading) {
+                    if (favoritesViewModel.isLoading) {
                         HStack {
                             Spacer()
                             ProgressView().id(UUID())
@@ -83,5 +83,5 @@ struct FavoritesView: View {
 }
 
 #Preview {
-    FavoritesView(dataSource: FavoritesDataSource())
+    FavoritesView(favoritesViewModel: FavoritesViewModel())
 }

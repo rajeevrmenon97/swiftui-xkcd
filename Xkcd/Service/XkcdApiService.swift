@@ -1,5 +1,5 @@
 //
-//  XkcdApiHelper.swift
+//  XkcdApiService.swift
 //  Xkcd
 //
 //  Created by Rajeev R Menon on 9/21/23.
@@ -10,7 +10,7 @@ import Combine
 import Kingfisher
 
 // Helper class to make the API calls to XKCD
-class XkcdApiHelper {
+class XkcdApiService {
     
     // Since the comics don't change, we can cache most of the requests
     static let urlCache: URLCache = {
