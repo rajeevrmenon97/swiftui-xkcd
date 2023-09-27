@@ -12,13 +12,34 @@ struct FeedItemView: View {
     var comic: XkcdComic
     
     var body: some View {
-        // Navigation link is added to the background to hide
-        // the arrow that shows up
         VStack {
-            Text("\(comic.num) \(comic.title)")
-        }.background(
-            NavigationLink("", destination: SingleComicView(comic: comic)).opacity(0)
-        )
+            HStack {
+                Text("#\(comic.num)")
+                    .bold()
+                Spacer()
+            }.padding(.top)
+            
+            XkcdApiHelper.getComicImage(comic: comic)
+                .resizable()
+                .scaledToFit()
+                .padding()
+                .border(Color.primary)
+                .background(
+                    NavigationLink("", destination: SingleComicView(comic: comic))
+                )
+            
+            
+            HStack {
+                Image(systemName: "heart")
+                    .imageScale(.large)
+                    .onTapGesture {
+                        return
+                    }
+                Text(comic.title)
+                    .font(.subheadline)
+                Spacer()
+            }.padding(.top)
+        }.padding(.bottom)
     }
 }
 

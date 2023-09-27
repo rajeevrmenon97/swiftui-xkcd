@@ -19,9 +19,10 @@ struct ContentView: View {
         // Main tab view
         TabView(selection: $selectedTab) {
             // Navigation view for the feed
-            NavigationView {
+            NavigationStack {
                 FeedView()
                     .navigationBarTitle(tabNames[selectedTab] ?? "", displayMode: .inline)
+                    .toolbarBackground(.visible, for: .navigationBar, .tabBar)
             }
             .tabItem {
                 Label("Feed", systemImage: "list.dash")

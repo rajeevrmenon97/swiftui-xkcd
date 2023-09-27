@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import Kingfisher
 
 // Helper class to make the API calls to XKCD
 class XkcdApiHelper {
@@ -22,6 +23,14 @@ class XkcdApiHelper {
         let config = URLSessionConfiguration.default
         config.urlCache = urlCache
         return URLSession(configuration: config)
+    }()
+    
+    // Image cache
+    static var imageCache: ImageCache = {
+        let cache = ImageCache(name: "xkcd_img_cache")
+        cache.diskStorage.config.sizeLimit = 500 * 1024 * 1024
+        cache.diskStorage.config.expiration = .never
+        return cache
     }()
     
     // Function to clear the cache
@@ -63,5 +72,16 @@ class XkcdApiHelper {
     // Function to return the latest comic. By default we don't cache this as new comics come out
     static func getLatestComic(useCache: Bool = false) -> AnyPublisher<XkcdComic?, Error> {
         return self.getRequest(comicUrl: "https://xkcd.com/info.0.json", useCache: useCache)
+    }
+    
+    // Get the comic image
+    static func getComicImage(comic: XkcdComic) -> KFImage {
+        guard let url = URL(string: comic.imgUrl) else {
+            fatalError("Wrong URL")
+        }
+        let resource = KF.ImageResource(downloadURL: url, cacheKey: String(comic.num))
+        return KFImage(source: .network(resource))
+                .targetCache(imageCache)
+                
     }
 }
