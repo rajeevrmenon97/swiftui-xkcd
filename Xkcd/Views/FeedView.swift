@@ -34,7 +34,7 @@ struct FeedItemView: View {
                 .border(Color.primary)
                 .background(
                     // Link hidden in background to hide the arrow
-                    NavigationLink("", destination: SingleComicView(comic: comic))
+                    NavigationLink("", destination: SingleComicView(comic: comic, favoritesViewModel: favoritesViewModel))
                         .opacity(0)
                 )
             

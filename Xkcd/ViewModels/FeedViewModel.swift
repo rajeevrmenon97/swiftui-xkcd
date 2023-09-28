@@ -95,7 +95,7 @@ class FeedViewModel: ObservableObject {
         Publishers.Sequence(sequence: comicNumbers)
             .flatMap { number in
                 XkcdApiService.getComic(num: number).replaceError(with: nil)
-            }
+            }   
             .compactMap { $0 }
             .collect()
             .receive(on: DispatchQueue.main)

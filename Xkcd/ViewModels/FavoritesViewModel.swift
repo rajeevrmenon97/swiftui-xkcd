@@ -85,6 +85,10 @@ class FavoritesViewModel: ObservableObject {
         favorites.insert(comic.num, at: 0)
         writeFavorites(comicNumbers: favorites)
         DispatchQueue.main.async {
+            // Set the correct next index if the feed is empty
+            if self.comics.isEmpty {
+                self.nextFavoritesIndex = 1
+            }
             // Add the new comic to the top of the feed
             self.comics.insert(comic, at: 0)
             self.noFavorites = self.favorites.count == 0

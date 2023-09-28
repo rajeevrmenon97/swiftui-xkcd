@@ -12,6 +12,7 @@ struct FavoriteItemView: View {
     var comic: XkcdComic
     var width: CGFloat
     var height: CGFloat
+    @ObservedObject var favoritesViewModel: FavoritesViewModel
     
     var body: some View {
         HStack {
@@ -30,7 +31,7 @@ struct FavoriteItemView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .background(
-                        NavigationLink("", destination: SingleComicView(comic: comic))
+                        NavigationLink("", destination: SingleComicView(comic: comic, favoritesViewModel: favoritesViewModel))
                             .opacity(0)
                     )
             }
@@ -52,7 +53,7 @@ struct FavoritesView: View {
                 List {
                     // Show favorites as they are loaded
                     ForEach(favoritesViewModel.comics) { comic in
-                        FavoriteItemView(comic: comic, width: geometry.size.width, height: geometry.size.height * 0.15)
+                        FavoriteItemView(comic: comic, width: geometry.size.width, height: geometry.size.height * 0.15, favoritesViewModel: favoritesViewModel)
                             .onAppear(perform: {
                                 // Function to load more favorites as you scroll
                                 favoritesViewModel.loadMoreFavoritesIfNeeded(comic: comic)
