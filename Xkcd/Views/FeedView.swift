@@ -9,9 +9,6 @@ import SwiftUI
 
 // View for a single item in the feed
 struct FeedItemView: View {
-    // State variable for the like button
-    @State var isFavorite: Bool = false
-    
     // Comic in the feed item
     var comic: XkcdComic
     
@@ -26,12 +23,10 @@ struct FeedItemView: View {
                 Spacer()
             }.padding(.top)
             
-            // KF Image of the commic
+            // KF Image of the comic
             XkcdApiService.getComicImage(comic: comic)
                 .resizable()
                 .scaledToFit()
-                .padding()
-                .border(Color.primary)
                 .background(
                     // Link hidden in background to hide the arrow
                     NavigationLink("", destination: SingleComicView(comic: comic, favoritesViewModel: favoritesViewModel))
@@ -39,22 +34,8 @@ struct FeedItemView: View {
                 )
             
             HStack {
-                Image(systemName: isFavorite ? "heart.fill": "heart")
-                    .imageScale(.large)
-                    .onAppear(perform: {
-                        // Update the like button status real time
-                        isFavorite = favoritesViewModel.isFavorite(comicNumber: comic.num)
-                    })
-                    .onTapGesture {
-                        // Handle add/remove to favorites
-                        if favoritesViewModel.isFavorite(comicNumber: comic.num) {
-                            isFavorite = false
-                            favoritesViewModel.deleteFavorite(comicNumber: comic.num)
-                        } else {
-                            isFavorite = true
-                            favoritesViewModel.addFavorite(comic: comic)
-                        }
-                    }
+                LikeButtonView(comic: comic, favoritesViewModel: favoritesViewModel)
+                
                 Text(comic.title)
                     .font(.subheadline)
                 Spacer()
@@ -70,33 +51,37 @@ struct FeedView: View {
     @ObservedObject var favoritesViewModel: FavoritesViewModel
     
     var body: some View {
-        List {
-            // Show each comic as they are loaded
-            ForEach(feedViewModel.comics) { comic in
-                FeedItemView(comic: comic, favoritesViewModel: favoritesViewModel)
-                    .onAppear(perform: {
-                        // Function to load more comics as you scroll
-                        feedViewModel.loadMoreContentIfNeeded(comic: comic)
-                    })
-            }
-            
-            // Progress bar to show while loading comics
-            // An ID is added to it for showing it in a list
-            if (feedViewModel.isLoading) {
-                HStack {
-                    Spacer()
-                    ProgressView().id(UUID())
-                    Spacer()
+        NavigationStack {
+            List {
+                // Show each comic as they are loaded
+                ForEach(feedViewModel.comics) { comic in
+                    FeedItemView(comic: comic, favoritesViewModel: favoritesViewModel)
+                        .onAppear(perform: {
+                            // Function to load more comics as you scroll
+                            feedViewModel.loadMoreContentIfNeeded(comic: comic)
+                        })
                 }
                 
+                // Progress bar to show while loading comics
+                // An ID is added to it for showing it in a list
+                if (feedViewModel.isLoading) {
+                    HStack {
+                        Spacer()
+                        ProgressView().id(UUID())
+                        Spacer()
+                    }
+                    
+                }
             }
+            .refreshable {
+                // Reload the feed to load any new comics
+                feedViewModel.reload()
+            }
+            .listStyle(.plain) // No background for the list elements
+            .scrollIndicators(.hidden) // Hide scroll bar
+            .navigationTitle("Feed")
+            .navigationBarTitleDisplayMode(.inline)
         }
-        .refreshable {
-            // Reload the feed to load any new comics
-            feedViewModel.reload()
-        }
-        .listStyle(.plain) // No background for the list elements
-        .scrollIndicators(.hidden) // Hide scroll bar
     }
 }
 

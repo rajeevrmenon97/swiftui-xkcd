@@ -29,7 +29,7 @@ struct FavoriteItemView: View {
             VStack {
                 XkcdApiService.getComicImage(comic: comic)
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
+                    .scaledToFit()
                     .background(
                         NavigationLink("", destination: SingleComicView(comic: comic, favoritesViewModel: favoritesViewModel))
                             .opacity(0)
@@ -45,40 +45,46 @@ struct FavoritesView: View {
     @ObservedObject var favoritesViewModel: FavoritesViewModel
     
     var body: some View {
-        // Placeholder to display when there are no favorites
-        if favoritesViewModel.noFavorites {
-            Text("No favorites")
-        } else {
-            GeometryReader { geometry in
-                List {
-                    // Show favorites as they are loaded
-                    ForEach(favoritesViewModel.comics) { comic in
-                        FavoriteItemView(comic: comic, width: geometry.size.width, height: geometry.size.height * 0.15, favoritesViewModel: favoritesViewModel)
-                            .onAppear(perform: {
-                                // Function to load more favorites as you scroll
-                                favoritesViewModel.loadMoreFavoritesIfNeeded(comic: comic)
-                            })
-                    }.onDelete { indexSet in
-                        // Handle swipe left to remove favorites
-                        indexSet.forEach { index in
-                            favoritesViewModel.deleteFavorite(comicNumber: favoritesViewModel.comics[index].num)
+        NavigationStack {
+            VStack {
+                // Placeholder to display when there are no favorites
+                if favoritesViewModel.noFavorites {
+                    Text("No favorites")
+                } else {
+                    GeometryReader { geometry in
+                        List {
+                            // Show favorites as they are loaded
+                            ForEach(favoritesViewModel.comics) { comic in
+                                FavoriteItemView(comic: comic, width: geometry.size.width, height: geometry.size.height * 0.15, favoritesViewModel: favoritesViewModel)
+                                    .onAppear(perform: {
+                                        // Function to load more favorites as you scroll
+                                        favoritesViewModel.loadMoreFavoritesIfNeeded(comic: comic)
+                                    })
+                            }.onDelete { indexSet in
+                                // Handle swipe left to remove favorites
+                                indexSet.forEach { index in
+                                    favoritesViewModel.deleteFavorite(comicNumber: favoritesViewModel.comics[index].num)
+                                }
+                            }
+                            
+                            // Progress bar to show while loading comics
+                            // An ID is added to it for showing it in a list
+                            if (favoritesViewModel.isLoading) {
+                                HStack {
+                                    Spacer()
+                                    ProgressView().id(UUID())
+                                    Spacer()
+                                }
+                                
+                            }
                         }
-                    }
-                    
-                    // Progress bar to show while loading comics
-                    // An ID is added to it for showing it in a list
-                    if (favoritesViewModel.isLoading) {
-                        HStack {
-                            Spacer()
-                            ProgressView().id(UUID())
-                            Spacer()
-                        }
-                        
+                        .listStyle(.plain) // No background for the list elements
+                        .scrollIndicators(.hidden) // Hide scroll bar
                     }
                 }
-                .listStyle(.plain) // No background for the list elements
-                .scrollIndicators(.hidden) // Hide scroll bar
             }
+            .navigationTitle("Favorites")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
